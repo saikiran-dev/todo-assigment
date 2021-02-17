@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Table, Switch } from "antd";
+import { Table, Switch, Col,Row } from "antd";
 import styles from "./App.css";
 const App = () => {
   const [tableDataSource, setTableDataSource] = useState([]);
@@ -43,12 +43,19 @@ const App = () => {
     setTaskCompleted(taskCompleted.concat(index));
   };
   return (
-    <Table
-      dataSource={tableDataSource}
-      columns={columns}
-      pagination={false}
-      rowKey={(record) => record.id}
-    />
+    <Row>
+      <Col span={3}></Col>
+      <Col span={18}>
+        <h1 style={{textAlign:'center'}}>TODO LIST</h1>
+        <Table
+          dataSource={tableDataSource}
+          columns={columns}
+          pagination={false}
+          rowKey={(record) => record.id}
+        />
+      </Col>
+      <Col span={3}></Col>
+    </Row>
   );
 };
 
